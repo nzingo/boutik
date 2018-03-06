@@ -1,0 +1,13 @@
+django>=1.10,<2.0
+djangorestframework>=3.6.0
+django-rest-auth==0.9.3
+django-allauth>=0.24.1
+coverage
+django-haystack>=2.7.dev0
+elasticsearch>=2.0.0,<3.0.0
+drf-haystack
+Pillow
+django-autofixture
+pytz
+
+
