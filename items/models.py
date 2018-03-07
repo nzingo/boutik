@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.db.models.signals import post_delete
 from django.dispatch.dispatcher import receiver
 #from gdstorage.storage import GoogleDriveStorage
@@ -9,7 +10,8 @@ from django.dispatch.dispatcher import receiver
 
 class Item(models.Model):
 
-    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     title = models.CharField(max_length=50, null=True)
     body = models.CharField(max_length=50, null=True)
     price = models.IntegerField(null=True, default=0)

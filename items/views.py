@@ -26,7 +26,8 @@ class CustomCreateView(APIView):
     parser_classes = (MultiPartParser, )
 
     def post(self, request):
-        item_serializer = ItemSerializer(data=request.data)
+        #if request.user.is_authenticated():
+        item_serializer = ItemSerializer(data=request.data, context={'request': request})
         if item_serializer.is_valid():
             new_item = item_serializer.save()  # item_serializer.save(owner=request.user)
             #if request.FILES is not None:

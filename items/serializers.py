@@ -1,3 +1,4 @@
+from rest_framework import serializers
 from .search_indexes import ItemIndex
 from drf_haystack.serializers import HaystackSerializer
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer, HyperlinkedIdentityField
@@ -5,9 +6,11 @@ from items.models import Item, ItemImage
 
 
 class ItemSerializer(ModelSerializer):
+    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Item
         fields = [
+            'owner',
             'title',
             'body',
             'price',
