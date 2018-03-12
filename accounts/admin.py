@@ -5,7 +5,7 @@ from items.models import Item
 
 class ItemsAdminInline(admin.TabularInline):
     model = Item
-    fields = ('title',)
+    fields = ('title', 'body', 'price',)
     can_delete = False
 
 

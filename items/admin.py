@@ -13,10 +13,10 @@ class MyModelAdmin(admin.ModelAdmin):
     ordering = ('-created', )
     list_display = ('title', 'validated', 'created')  # , 'get_images')
     list_filter = ('validated', 'created')
-    readonly_fields = ('title', 'body', 'price', 'category', 'sub_category', 'phone', 'location', 'likes')
+    readonly_fields = ('title', 'body', 'price', 'category', 'phone', 'location', 'likes')
     fieldsets = (
         (None, {
-            'fields': ('validated', 'title', 'body')
+            'fields': ('validated', 'title', 'body', 'color')
         }),
         ('Advanced options', {
             'classes': ('collapse',),

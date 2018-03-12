@@ -12,15 +12,26 @@ class Item(models.Model):
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-    title = models.CharField(max_length=50, null=True)
-    body = models.CharField(max_length=50, null=True)
-    price = models.IntegerField(null=True, default=0)
-    category = models.CharField(max_length=50, null=True)
-    sub_category = models.CharField(max_length=50, null=True)
-    phone = models.CharField(max_length=50, null=True)
-    location = models.CharField(max_length=50, null=True)
+    title = models.CharField(max_length=50)
+    body = models.TextField()
+
+    price = models.IntegerField()   # eleminate "null=true" after deleting migrations
+    category = models.CharField(max_length=50)  # one category "woman clothes dresses"
+    phone = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)  # one location "alger bab ezzouar"
+
+    size = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+
+    condition = models.BooleanField()
+    delivery = models.BooleanField()
+    promotion = models.BooleanField()
+    rent = models.BooleanField()
+    wholesale = models.BooleanField()
+
     likes = models.IntegerField(default=0)
-    created = models.DateTimeField(auto_now_add=True, null=True)
+    views = models.IntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True)
     validated = models.BooleanField(default=False)
 
     def __str__(self):
