@@ -5,13 +5,13 @@ from .models import Item, ItemImage
 from drf_haystack.viewsets import HaystackViewSet
 from drf_haystack.filters import HaystackFilter
 from .serializers import SearchSerializer, ItemSerializer, ImageSerializer, ItemSerializerUpdate
-from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, get_object_or_404
 from rest_framework.filters import OrderingFilter
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework import permissions, status
-from django.shortcuts import get_object_or_404
+
 # from rest_framework.renderers import JSONRenderer
 
 

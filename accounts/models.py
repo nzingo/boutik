@@ -7,14 +7,14 @@ from django.dispatch import receiver
 class CustomUser(AbstractUser):
 
     image_url = models.CharField(max_length=200, blank=True)
-    description = models.TextField(default='')
-    user_name = models.CharField(max_length=100, default='')
-    first_name = models.CharField(max_length=50, default='')
-    last_name = models.CharField(max_length=50, default='')
-    gender = models.CharField(max_length=20, default='')
-    city = models.CharField(max_length=50, default='')
-    phone_number = models.CharField(max_length=20, default='')
-    date_of_birth = models.DateField(null=True)
+    description = models.TextField(default='', blank=True)
+    user_name = models.CharField(max_length=100, default='', blank=True)
+    first_name = models.CharField(max_length=50, default='', blank=True)
+    last_name = models.CharField(max_length=50, default='', blank=True)
+    gender = models.CharField(max_length=20, default='', blank=True)
+    city = models.CharField(max_length=50, default='', blank=True)
+    phone_number = models.CharField(max_length=20, default='', blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
 
     USERNAME_FIELD = 'username'
 

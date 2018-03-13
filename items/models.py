@@ -6,6 +6,7 @@ from django.dispatch.dispatcher import receiver
 
 # Define Google Drive Storage
 # gd_storage = GoogleDriveStorage()
+from django.utils.safestring import mark_safe
 
 
 class Item(models.Model):
@@ -45,6 +46,12 @@ class ItemImage(models.Model):
 
     def __str__(self):
         return "%s" % self.image.name
+
+    def image_tag(self):
+        return mark_safe('<img src="/media/%s" width="150" height="150" />' % self.image)
+
+    image_tag.short_description = 'Image'
+
 
 # delete images frome drive when object deleted
 @receiver(post_delete, sender=ItemImage)

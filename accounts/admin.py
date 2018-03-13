@@ -5,7 +5,8 @@ from items.models import Item
 
 class ItemsAdminInline(admin.TabularInline):
     model = Item
-    fields = ('title', 'body', 'price',)
+    fields = ('id', 'title', 'validated',)
+    readonly_fields = ('id', 'title', 'validated',)
     can_delete = False
 
 
